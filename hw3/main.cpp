@@ -23,7 +23,7 @@ int main() {
     std::cin >> c;
 
     std::cout << "Sum: " << a << "+" << b << "+" << c << " = " << a + b + c << std::endl;
-    std::cout << "Avg: (" << a << "+" << b << "+" << c << ") / 3 = " << (a + b + c) / 3 << std::endl;
+    std::cout << "Avg: (" << a << "+" << b << "+" << c << ") / 3 = " << (static_cast<double>(a) + b + c) / 3 << std::endl;
 
     std::cout << a << " > " << b << "? - " << std::boolalpha << (a > b) << std::endl;
     std::cout << a << " = " << b << "? - " << std::boolalpha << (a == b) << std::endl;
@@ -62,12 +62,13 @@ int main() {
 
     // task 5
     int radius;
+    const double PI = 3.14;
     std::cout << "Enter circle radius: ";
     std::cin >> radius;
 
     std::cout << "Radius: " << radius << std::endl;
-    std::cout << "Area of circle: 3.14 * " << radius << "^2 = " << 3.14 * radius * radius << std::endl;
-    std::cout << "Length of circle: 2 * 3.14 * " << radius << " = " << 2 * 3.14 * radius << std::endl;
+    std::cout << "Area of circle: 3.14 * " << radius << "^2 = " << PI * radius * radius << std::endl;
+    std::cout << "Length of circle: 2 * 3.14 * " << radius << " = " << 2 * PI * radius << std::endl;
 
     return 0;
 }
