@@ -57,17 +57,23 @@ int main() {
 
     // task 4
     int A, B, C;
-    std::cout << "Enter first angles of triangle: ";
+    std::cout << "Enter first angle of triangle: ";
     std::cin >> A;
-    std::cout << "Enter second angles of triangle: ";
+    std::cout << "Enter second angle of triangle: ";
     std::cin >> B;
-    std::cout << "Enter third angles of triangle: ";
+    std::cout << "Enter third angle of triangle: ";
     std::cin >> C;
 
-    if (A + B + C == 180) {
-        std::cout << "These angles can form triangle." << std::endl;
+    std::string errorMsg = "These angles can not form triangle.";
+
+    if (A > 0 && B > 0 && C > 0 && A < 180 && B < 180 && C < 180) {
+        if (A + B + C == 180) {
+            std::cout << "These angles can form triangle." << std::endl;
+        } else {
+            std::cout << errorMsg << std::endl;
+        }
     } else {
-        std::cout << "These angles can not form triangle." << std::endl;
+        std::cout << errorMsg << std::endl;
     }
 
     // task 5
@@ -127,25 +133,26 @@ int main() {
     if (numMonth < 1 || numMonth > 12) {
         std::cout << "Error" << std::endl;
     } else {
-        switch (numMonth) {
-            case 1:
-            case 2:
-            case 12:
+        Month month = static_cast<Month>(numMonth);
+        switch (month) {
+            case December:
+            case January:
+            case February:
                 std::cout << "Winter" << std::endl;
                 break;
-            case 3:
-            case 4:
-            case 5:
+            case March:
+            case April:
+            case May:
                 std::cout << "Spring" << std::endl;
                 break;
-            case 6:
-            case 7:
-            case 8:
+            case June:
+            case July:
+            case August:
                 std::cout << "Summer" << std::endl;
                 break;
-            case 9:
-            case 10:
-            case 11:
+            case September:
+            case October:
+            case November:
                 std::cout << "Autumn" << std::endl;
                 break;
         }
