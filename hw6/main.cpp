@@ -10,19 +10,16 @@ int main() {
     std::cout << "Enter number of last element of arithmetic progression: ";
     std::cin >> last;
 
-    if (first < 1) {
-        std::cout << "First element of arithmetic progression must be more or equal 1" << std::endl;
-    } else if (step < 1) {
-        std::cout << "Step of arithmetic progression must be more or equal 1" << std::endl;
-    } else if (last < first) {
+    if (last < 0) {
         std::cout << "Number of last element of arithmetic progression must be more than first element" << std::endl;
     } else {
         std::cout << "Elements of arithmetic progression: ";
-        for (int i = first; i <= last; i += step) {
-            if (i < last - step) {
-                std::cout << i << ", ";
+        for (int i = 0; i < last; i++) {
+            int element = first + i * step;
+            if (i < last - 1) {
+                std::cout << element << ", ";
             } else {
-                std::cout << i << std::endl;
+                std::cout << element << std::endl;
             }
         }
     }
@@ -58,7 +55,7 @@ int main() {
     } else {
         long long factorial = 1;
         std::cout << "Factorial of number " << num << ": ";
-        for (int i = 1; i <= num; ++i) {
+        for (int i = 2; i <= num; ++i) {
             factorial *= i;
             if (i < num) {
                 std::cout << i << " * ";
@@ -78,7 +75,7 @@ int main() {
     std::cout << "a:" << std::endl;
     for (int i = size; i >= 1; --i) {
         for (int j = 1; j <= i; ++j) {
-            std::cout << "* ";
+            std::cout << "*";
         }
         std::cout << std::endl;
     }
@@ -86,30 +83,30 @@ int main() {
     std::cout << "b:" << std::endl;
     for (int i = 1; i <= size; ++i) {
         for (int j = 1; j <= i; ++j) {
-            std::cout << "* ";
+            std::cout << "*";
         }
         std::cout << std::endl;
     }
 
     std::cout << "с:" << std::endl;
-    for (int i = 1; i <= size; ++i) {
-        for (int j = 1; j < i; ++j) {
-            std::cout << " ";
-        }
-        for (int k = 1; k <= size; ++k) {
-            std::cout << "* ";
-        }
-        std::cout << std::endl;
-    }
-
-    std::cout << "d:" << std::endl;
     for (int i = size; i >= 1; --i) {
         for (int j = 1; j < i; ++j) {
             std::cout << " ";
         }
         for (int k = 1; k <= size; ++k) {
-            std::cout << "* ";
+            std::cout << "*";
 
+        }
+        std::cout << std::endl;
+    }
+
+    std::cout << "d:" << std::endl;
+    for (int i = 1; i <= size; ++i) {
+        for (int j = 1; j < i; ++j) {
+            std::cout << " ";
+        }
+        for (int k = 1; k <= size; ++k) {
+            std::cout << "*";
         }
         std::cout << std::endl;
     }
@@ -117,7 +114,7 @@ int main() {
     std::cout << "e:" << std::endl;
     for (int i = 1; i <= size; ++i) {
         for (int j = 1; j <= i; ++j) {
-            std::cout << ((i + j) % 2 == 0 ? "1" : "0") << " ";
+            std::cout << ((i + j) % 2 == 0);
         }
         std::cout << std::endl;
     }
