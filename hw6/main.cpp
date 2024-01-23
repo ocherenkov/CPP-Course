@@ -11,7 +11,7 @@ int main() {
     std::cin >> last;
 
     if (last < 0) {
-        std::cout << "Number of last element of arithmetic progression must be more than first element" << std::endl;
+        std::cout << "Number of last element of arithmetic progression must be more than 0" << std::endl;
     } else {
         std::cout << "Elements of arithmetic progression: ";
         for (int i = 0; i < last; i++) {
