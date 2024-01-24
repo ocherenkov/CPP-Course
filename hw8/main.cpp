@@ -44,19 +44,19 @@ void task3() {
     int N = 6;
     std::cout << std::endl << "[TASK 3]" << std::endl;
     std::cout << "[Cycle] Natural number with desc sort: ";
-    CycleFunctions::printNaturalNumbers(N, 2);
+    CycleFunctions::printNaturalNumbers(N, CycleFunctions::SORT::DESC);
     std::cout << std::endl;
 
     std::cout << "[Cycle] Natural number with asc sort: ";
-    CycleFunctions::printNaturalNumbers(N, 1);
+    CycleFunctions::printNaturalNumbers(N, CycleFunctions::SORT::ASC);
     std::cout << std::endl;
 
     std::cout << "[Recursive] Natural number with desc sort: ";
-    RecursiveFunctions::printNaturalNumbers(N, 2);
+    RecursiveFunctions::printNaturalNumbers(N, RecursiveFunctions::SORT::DESC);
     std::cout << std::endl;
 
     std::cout << "[Recursive] Natural number with asc sort: ";
-    RecursiveFunctions::printNaturalNumbers(N, 1);
+    RecursiveFunctions::printNaturalNumbers(N, RecursiveFunctions::SORT::ASC);
     std::cout << std::endl;
 }
 
