@@ -169,17 +169,17 @@ void playGame(std::string secretWord) {
         guessedWord = userGuess;
         printWord(secretWord, guessedWord);
 
+        if (isWordGuessed(secretWord, guessedWord)) {
+            std::cout << BLUE << "Congratulations!" << RESET << " You guessed the word in " << BLUE << attempts << RESET << " attempts." << std::endl;
+            break;
+        }
+
         if (typeGame == GameType::WITHATTEMPS) {
             std::cout << MAGENTA << "Attempts left: " << COUNT_ATTEMPS_FOR_GAME_TYPE - attempts << "/" << COUNT_ATTEMPS_FOR_GAME_TYPE << RESET << std::endl;
             if (attempts == COUNT_ATTEMPS_FOR_GAME_TYPE) {
                 std::cout << YELLOW << "The attempts are over." << RESET << std::endl << "There was word - " << CYAN << secretWord << RESET << std::endl;
                 break;
             }
-        }
-
-        if (isWordGuessed(secretWord, guessedWord)) {
-            std::cout << BLUE << "Congratulations!" << RESET << " You guessed the word in " << BLUE << attempts << RESET << " attempts." << std::endl;
-            break;
         }
     }
 }
