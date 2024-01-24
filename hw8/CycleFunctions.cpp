@@ -1,4 +1,5 @@
-#include "iostream"
+#include "CycleFunctions.h"
+#include <iostream>
 
 namespace CycleFunctions {
     int factorial(int n) {
@@ -12,12 +13,12 @@ namespace CycleFunctions {
         return result;
     }
 
-    void printNaturalNumbers(int count, int sort = 1) {
-        if (sort == 2) {
+    void printNaturalNumbers(int count, SORT sort) {
+        if (sort == SORT::DESC) {
             for (int i = count; i >= 1; i--) {
                 std::cout << i << " ";
             }
-        } else if (sort == 1) {
+        } else if (sort == SORT::ASC) {
             for (int i = 1; i <= count; i++) {
                 std::cout << i << " ";
             }

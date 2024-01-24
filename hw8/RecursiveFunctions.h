@@ -1,4 +1,5 @@
 namespace RecursiveFunctions {
+    enum SORT {ASC = 1, DESC};
     int factorial(int n);
-    void printNaturalNumbers(int count, int sort = 1);
+    void printNaturalNumbers(int count, SORT sort = ASC);
 }
