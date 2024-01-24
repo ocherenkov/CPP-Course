@@ -89,13 +89,9 @@ int main() {
     }
 
     std::cout << "с:" << std::endl;
-    for (int i = size; i >= 1; --i) {
-        for (int j = 1; j < i; ++j) {
-            std::cout << " ";
-        }
-        for (int k = 1; k <= size; ++k) {
+    for (int i = 1; i <= size; ++i) {
+        for (int j = 1; j <= size; ++j) {
             std::cout << "*";
-
         }
         std::cout << std::endl;
     }
