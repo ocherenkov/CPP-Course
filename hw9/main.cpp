@@ -1,13 +1,18 @@
 #include <iostream>
 
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+}
+
 void translateArray(int numbers[], int size) {
     for (int i = 0; i < size; ++i) {
         if (numbers[i] > 0) {
             numbers[i] *= 2;
-            std::cout << numbers[i] << " ";
         } else {
             numbers[i] = 0;
-            std::cout << numbers[i] << " ";
         }
     }
 }
@@ -72,6 +77,7 @@ void task1() {
         std::cin >> numbers[i];
     }
     translateArray(numbers, size);
+    printArray(numbers, size);
     std::cout << std::endl;
 }
 
