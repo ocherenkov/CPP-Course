@@ -1,7 +1,10 @@
 #include <iostream>
 
-const int ROWS = 3;
-const int COLUMNS = 3;
+//const int ROWS = 3;
+//const int COLUMNS = 3;
+
+const int ROWS = 4;
+const int COLUMNS = 4;
 
 enum SortingDirection { ascending, descending };
 
@@ -42,14 +45,11 @@ bool isSorted(const int* arr, int size, SortingDirection direction) {
 
 void traverseTopDownRightLeftByColumns(int arr_2d[ROWS][COLUMNS]) {
     for (int col = COLUMNS - 1; col >= 0; --col) {
-        if (col % 2 == 0) {
-            for (int row = 0; row < ROWS; ++row) {
-                std::cout << arr_2d[row][col] << " ";
-            }
-        } else {
-            for (int row = 0; row < ROWS; ++row) {
-                std::cout << arr_2d[row][col] << " ";
-            }
+        for (int row = 0; row < ROWS; ++row) {
+            std::cout << arr_2d[row][col] << " ";
+        }
+        if (col % COLUMNS) {
+            std::cout << std::endl;
         }
     }
     std::cout << std::endl;
@@ -58,16 +58,28 @@ void traverseTopDownRightLeftByColumns(int arr_2d[ROWS][COLUMNS]) {
 void traverseLeftRightDownTopSwitchingByRows(int arr_2d[ROWS][COLUMNS]) {
     for (int row = ROWS - 1; row >= 0; --row) {
         if (row % 2 == 0) {
-            for (int col = 0; col < COLUMNS; ++col) {
-                std::cout << arr_2d[row][col] << " ";
-            }
-        } else {
             for (int col = COLUMNS - 1; col >= 0; --col) {
                 std::cout << arr_2d[row][col] << " ";
             }
+        } else {
+            for (int col = 0; col < COLUMNS; ++col) {
+                std::cout << arr_2d[row][col] << " ";
+            }
+        }
+        if (row % COLUMNS) {
+            std::cout << std::endl;
         }
     }
     std::cout << std::endl;
+}
+
+void printArray(int arr_2d[ROWS][COLUMNS]) {
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLUMNS; j++) {
+            std::cout << arr_2d[i][j] << " ";
+        }
+        std::cout << std::endl;
+    }
 }
 
 void task1() {
@@ -110,11 +122,21 @@ void task2() {
 
 void task3() {
     std::cout << std::endl << "[TASK 3]" << std::endl;
+//    int arr_2d[ROWS][COLUMNS] = {
+//    {1, 2, 3},
+//    {4, 5, 6},
+//    {7, 8, 9}
+//    };
+
     int arr_2d[ROWS][COLUMNS] = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
+            {1, 2, 3, 4 },
+            {5, 6, 7, 8 },
+            {9, 10, 11, 12 },
+            {13, 14, 15, 16 }
     };
+
+    std::cout << "Original array:" << std::endl;
+    printArray(arr_2d);
 
     std::cout << "Raversing top down right left by columns:" << std::endl;
     traverseTopDownRightLeftByColumns(arr_2d);
@@ -129,7 +151,7 @@ int main() {
     // task1
     task1();
 
-    // task2
+//    // task2
     task2();
 
     // task3
