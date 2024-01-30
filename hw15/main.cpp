@@ -31,9 +31,12 @@ Student* findTopStudent(Student students[], int size) {
     }
 
     Student* topStudent = &students[0];
+    double topAverage = calculateAverage(*topStudent);
     for (int i = 1; i < size; ++i) {
-        if (calculateAverage(students[i]) > calculateAverage(*topStudent)) {
+        double currentAverage = calculateAverage(students[i]);
+        if (currentAverage > topAverage) {
             topStudent = &students[i];
+            topAverage = currentAverage;
         }
     }
 
