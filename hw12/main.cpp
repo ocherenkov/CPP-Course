@@ -1,6 +1,6 @@
 #include <iostream>
 
-const unsigned int ROWS = 3;
+const unsigned int ROWS = 4;
 const unsigned int COLUMNS = 3;
 
 enum SortingDirection
@@ -108,7 +108,7 @@ void sort(int arr[ROWS][COLUMNS], SortingDirection direction)
         }
     } else if (direction == SortingDirection::ByColumns) {
         for (int i = 0; i < COLUMNS; i++) {
-            int column[COLUMNS];
+            int column[COLUMNS * ROWS];
             for (int j = 0; j < ROWS; j++) {
                 column[j] = arr[j][i];
             }
