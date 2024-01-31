@@ -9,7 +9,8 @@ public:
     Team(const std::string& name);
     bool addPlayer(Player* player);
     bool removePlayer(Player* player);
-    void getInfo(bool isFullInfo = true) const;
+    void printTeamName() const;
+    void printTeamFullInfo() const;
 
 private:
     std::string m_name;

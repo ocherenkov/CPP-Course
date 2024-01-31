@@ -27,10 +27,13 @@ bool Team::removePlayer(Player* player) {
     return false;
 }
 
-void Team::getInfo(bool isFullInfo) const {
+void Team::printTeamName() const {
     std::cout << "| Team \\-_-/\\-_-/ |" << std::endl;
     std::cout << "Name: " << m_name << std::endl;
-    if (isFullInfo) {
-        std::cout << "Number of players: " << m_numPlayers << std::endl;
-    }
+}
+
+void Team::printTeamFullInfo() const {
+    std::cout << "| Team \\-_-/\\-_-/ |" << std::endl;
+    std::cout << "Name: " << m_name << std::endl;
+    std::cout << "Number of players: " << m_numPlayers << std::endl;
 }

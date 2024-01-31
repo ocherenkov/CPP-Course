@@ -40,11 +40,11 @@ void Player::printPlayerInfo() const {
               << "Class: " << getPlayerClassName() << std::endl;
 
     if (m_weapon != nullptr) {
-        m_weapon->getInfo();
+        m_weapon->printInfo();
     }
 
     if (m_team != nullptr) {
-        m_team->getInfo(false);
+        m_team->printTeamName();
     }
 
     std::cout << std::endl;

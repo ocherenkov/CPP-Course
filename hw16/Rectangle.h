@@ -7,6 +7,6 @@ public:
     Rectangle();
     Rectangle(float length, float height);
 
-    float getArea();
-    float getPerimeter();
+    float getArea() const;
+    float getPerimeter() const;
 };

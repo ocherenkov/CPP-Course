@@ -34,7 +34,7 @@ void task3() {
     std::cout << std::endl << "[TASK 3]" << std::endl;
     player.printPlayerInfo(); // with team
     std::cout << std::endl;
-    team.getInfo();
+    team.printTeamFullInfo();
     std::cout << std::endl;
     team.removePlayer(&player);
     player.printPlayerInfo(); // without team
