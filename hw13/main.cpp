@@ -52,7 +52,7 @@ std::string formatDate() {
     return dateFormatted;
 }
 
-std::vector<std::string> splitString(std::string str, char delimiter){
+std::vector<std::string> splitString(const std::string& str, char delimiter){
     std::vector<std::string> result;
     std::string token;
     std::stringstream stream(str);
@@ -64,11 +64,12 @@ std::vector<std::string> splitString(std::string str, char delimiter){
 
 std::string getRandomWord() {
     std::vector<std::string> words = readWordsFromFile();
-    int wordsCount = words.size();
-    int index = getRandNumber(wordsCount);
+    const int wordsCount = words.size();
+    const int index = getRandNumber(wordsCount);
     return words[index];
 }
 
+// TODO "Won't cover more complex cases with duplicative letters". Change algorithm
 void printWord(const std::string& word, const std::string& guessed) {
     for (int i = 0; i < WORD_LENGTH; ++i) {
         if (guessed[i] == word[i]) {
