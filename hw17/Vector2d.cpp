@@ -38,11 +38,11 @@ float Vector2d::operator()() const {
 float& Vector2d::operator[](int i) {
     if (i == 0) {
         return m_x;
-    } else if (i == 1) {
-        return m_y;
-    } else {
-        return m_x;
     }
+    if (i == 1) {
+        return m_y;
+    }
+    throw std::out_of_range("Index out of range.");
 }
 
 Vector2d operator+(const Vector2d& leftVector, const Vector2d& rightVector) {
