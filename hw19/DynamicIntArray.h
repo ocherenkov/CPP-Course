@@ -21,7 +21,7 @@ public:
     int& operator[](std::size_t index);
 
     //delete previous memory, create new inner array with updated size
-    void setSize(std::size_t newSize);
+    void setSize(const std::size_t newSize);
     std::size_t getSize() const;
 
     //Clear internal memory, set size to 0

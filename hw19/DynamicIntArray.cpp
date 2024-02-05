@@ -30,7 +30,7 @@ int& DynamicIntArray::operator[](std::size_t index) {
     return m_array[index];
 }
 
-void DynamicIntArray::setSize(std::size_t newSize) {
+void DynamicIntArray::setSize(const std::size_t newSize) {
     int* newArray = new int[newSize];
     std::size_t copySize = std::min(m_size, newSize);
     std::copy(m_array, m_array + copySize, newArray);
