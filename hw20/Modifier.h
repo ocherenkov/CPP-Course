@@ -27,7 +27,7 @@ public:
 		m_munchkinPowerChange = m_powerBoost;
 	}
 
-	virtual std::string getFullInfo() const
+	virtual std::string getFullInfo() const override
 	{
 		return "Munchkin power +" + std::to_string(m_powerBoost);
 	}
@@ -55,10 +55,23 @@ class HalvesMonsterLevel : public Modifier
 public:
 	//#TODO: cut monster's power in 2 if he is of type tribe
 
-	HalvesMonsterLevel(Tribe tribe) {} //implement
-	virtual void apply(Munchkin* munchkin, Monster* monster) override {} //implement
+    HalvesMonsterLevel(Tribe tribe) : m_tribe(tribe) {}
 
-	virtual std::string getFullInfo() const override { return ""; } //implement
+    virtual void apply(Munchkin* munchkin, Monster* monster) override
+    {
+        if (monster->getTribe() == m_tribe)
+        {
+            m_monsterPowerChange = monster->getLevel() * (-2);
+        }
+    }
+
+    virtual std::string getFullInfo() const override
+    {
+        return "Halves Monster level for " + TribeInfo::tribeToString(m_tribe) + " tribe";
+    }
+
+private:
+    Tribe m_tribe;
 };
 
 //#TODO: Add unique Modifier munchkin/monster specific

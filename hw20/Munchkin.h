@@ -22,10 +22,9 @@ public:
 	void addItem(Item* item);
 	void setItems(const std::vector<Item*>& items);
 	const std::vector<Item*>& getItems() const;
-	
-	//TODO: Implement, by index or by pointer or at random
-	void removeModifierFromHand() {}
-	void removeItemEquipped() {}
+
+	void removeModifierFromHand(int cardNumber);
+	void removeItemEquipped();
 
 	Modifier* popModifier(int idx);
 	const std::vector<Modifier*>& getModifiers() const { return m_modifiers; }

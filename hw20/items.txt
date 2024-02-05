@@ -1,0 +1,7 @@
+Weapon;The Sword of DOOM;5
+UndeadWeapon;Stinky knife;2
+UndeadWeapon;Holy grenade;4
+HolySword;Platinum sword;3
+HolySword;Diamond sword;4
+HugeRock;Huge Rock;5
+HugeRock;Mountain;6

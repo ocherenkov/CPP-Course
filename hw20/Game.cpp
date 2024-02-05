@@ -53,23 +53,23 @@ void pressAnyKeyToContinue()
 
 void printMunchkinLost(Monster* monster)
 {
-	std::cout << "-------YOU'VE LOST to \"" << monster->getName() << "\"Monster!---------\n";
-	//#TODO: Print runaway policy monster dealt to Munchkin
+	std::cout << "-------YOU'VE LOST to \"" << monster->getName() << "\" Monster!---------\n";
+    std::cout << monster->getRunawayPolicy()->getFullInfo();
 }
 
-std::string getTribeString(Tribe tribe)
-{
-	switch (tribe)
-	{
-	case Tribe::Human: return "HUMAN";
-	case Tribe::Undead: return "UNDEAD";
-	case Tribe::Zombie: return "ZOMBIE";
-	case Tribe::God: return "GOD";
-	case Tribe::Count:
-	default:
-		return "";
-	}
-}
+//std::string getTribeString(Tribe tribe)
+//{
+//	switch (tribe)
+//	{
+//	case Tribe::Human: return "HUMAN";
+//	case Tribe::Undead: return "UNDEAD";
+//	case Tribe::Zombie: return "ZOMBIE";
+//	case Tribe::God: return "GOD";
+//	case Tribe::Count:
+//	default:
+//		return "";
+//	}
+//}
 
 void printIntro(Munchkin* munchkin)
 {
@@ -167,8 +167,8 @@ void printCurrentFightResult(int powerDifference)
 void printMonsterInfo(Monster* monster)
 {
 	std::cout << "\n--------Monster \"" << monster->getName() << "\"" << ", of " <<
-		UI::getTribeString(monster->getTribe()) << ", level " << monster->getLevel() << " --------" << std::endl << std::endl;
-	//#TODO: Print RUNAWAY POLICIES info similar to items print in printPlayerDeck()
+		TribeInfo::tribeToString(monster->getTribe()) << ", level " << monster->getLevel() << " --------" << std::endl << std::endl;
+	std::cout << monster->getRunawayPolicy()->getFullInfo();
 }
 
 

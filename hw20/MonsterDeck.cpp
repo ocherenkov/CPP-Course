@@ -16,16 +16,26 @@ MonsterDeck::MonsterDeck()
 
 MonsterDeck::~MonsterDeck()
 {
-	//TODO: Clear memory
+    for (Monster* monster : m_monstersDatabase) {
+        delete monster;
+    }
+    m_monstersDatabase.clear();
 }
 
-Monster* MonsterDeck::generateMonster() const
+Monster* MonsterDeck::generateMonster()
 {
 	//#TODO: this call should return new monster every time
 	//either for as long as the same game is being played
 	//or unless ALL cards were generated from database to the game - in this case 
 	//make ALL cards available again
+    if (m_availableMonsters.empty()) {
+        m_availableMonsters = m_monstersDatabase;
+    }
 
-	const int choice = std::rand() % m_monstersDatabase.size();
-	return m_monstersDatabase[choice];
+    const int choice = std::rand() % m_availableMonsters.size();
+
+    Monster* randomMonster = m_availableMonsters[choice];
+    m_availableMonsters.erase(m_availableMonsters.begin() + choice);
+
+    return randomMonster;
 }

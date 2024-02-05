@@ -1,6 +1,7 @@
 #include "Munchkin.h"
 #include "Item.h"
 #include "Modifier.h"
+#include <algorithm>
 
 void Munchkin::updateLevelBy(int levels)
 {
@@ -46,3 +47,25 @@ Modifier* Munchkin::popModifier(int idx)
 
 }
 
+void Munchkin::removeModifierFromHand(int cardNumber)
+{
+    if (m_modifiers.size() >= cardNumber) {
+        const int randNumber = std::rand() % m_modifiers.size();
+        m_modifiers.erase(m_modifiers.begin() + randNumber);
+    }
+}
+
+void Munchkin::removeItemEquipped()
+{
+    if (m_items.size() >= 1) {
+        int maxBasePower = m_items[0]->getBasePower();
+
+        for (int i = 1; i < m_items.size(); i++) {
+            if (m_items[i]->getBasePower() > maxBasePower) {
+                maxBasePower = m_items[i]->getBasePower();
+            }
+        }
+
+        m_items.erase(m_items.begin() + maxBasePower);
+    }
+}

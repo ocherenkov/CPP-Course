@@ -9,8 +9,9 @@ public:
 	ItemDeck();
 	~ItemDeck();
 
-	std::vector<Item*> generateItems() const;
+	std::vector<Item*> generateItems();
 
 private:
 	std::vector<Item*> m_itemsDataBase;
+    std::vector<Item*> m_heldItems;
 };

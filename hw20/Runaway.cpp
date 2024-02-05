@@ -13,3 +13,13 @@ void Runaway_LevelDowngradeIf::apply(Munchkin* munchkin)
 		Runaway_LevelDowngrade::apply(munchkin);
 	}
 }
+
+void Runaway_ModifierFromHandRemoval::apply(Munchkin* munchkin)
+{
+    munchkin->removeModifierFromHand(m_cardNumber);
+}
+
+void Runaway_ItemEquipedRemoval::apply(Munchkin* munchkin)
+{
+    munchkin->removeItemEquipped();
+}

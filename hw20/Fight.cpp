@@ -2,6 +2,7 @@
 
 #include "Item.h"
 #include "Modifier.h"
+#include "ModifierDeck.h"
 #include "Munchkin.h"
 #include "Monster.h"
 #include "Runaway.h"

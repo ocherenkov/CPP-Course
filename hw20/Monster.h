@@ -17,7 +17,7 @@ public:
 
 	Runaway* getRunawayPolicy() const { return m_RunawayPolicy; }
 
-	std::string getFullInfo() const { return "Monster " + getName() + ", " + m_RunawayPolicy->getFullInfo(); }
+	std::string getFullInfo() const { return "Monster " + getName() + ", level " + std::to_string(getLevel()) + m_RunawayPolicy->getFullInfo(); }
 
 private:
 	unsigned int m_level = 1;
