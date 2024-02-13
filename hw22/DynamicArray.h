@@ -33,6 +33,9 @@ public:
     }
 
     T& operator[](std::size_t index) {
+        if (index >= m_size) {
+            throw std::out_of_range("Index out of range");
+        }
         return m_array[index];
     }
 
@@ -53,7 +56,6 @@ public:
         delete[] m_array;
         m_array = nullptr;
         m_size = 0;
-        m_capacity = 0;
     }
 
     void push_back(const T& element) {
@@ -73,6 +75,7 @@ public:
         if (m_size > 0) {
             return m_array[m_size - 1];
         }
+        return T();
     }
 
     void reserve(std::size_t reservedSpace) {
@@ -91,23 +94,25 @@ public:
 
     void shrinkToFit() {
         if (m_capacity > m_size) {
-            T* newArray = new T[m_size];
-            std::copy(m_array, m_array + m_size, newArray);
-            delete[] m_array;
-            m_array = newArray;
-            m_capacity = m_size;
+            setSize(m_size);
         }
     }
 
     bool operator==(const DynamicArray& other) const {
+        if (this == &other) {
+            return true;
+        }
+
         if (m_size != other.m_size) {
             return false;
         }
+
         for (std::size_t i = 0; i < m_size; ++i) {
             if (m_array[i] != other.m_array[i]) {
                 return false;
             }
         }
+
         return true;
     }
 
