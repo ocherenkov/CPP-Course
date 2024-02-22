@@ -114,11 +114,11 @@ VectorRelativeState Vector2d::getRelativeState(const Vector2d& other) const {
 
     float cos = scalarProduct / (magnitude1 * magnitude2);
 
-    if (cos == 1.0f) {
+    if (std::abs(cos - 1.0f) < std::numeric_limits<float>::epsilon()) {
         return VectorRelativeState::CoDirected;
-    } else if (cos == -1.0f) {
+    } else if (std::abs(cos + 1.0f) < std::numeric_limits<float>::epsilon()) {
         return VectorRelativeState::OppositeDirected;
-    } else if (cos == 0.0f) {
+    } else if (std::abs(cos) < std::numeric_limits<float>::epsilon()) {
         return VectorRelativeState::RightAngle;
     } else if (cos > 0.0f) {
         return VectorRelativeState::AcuteAngle;
