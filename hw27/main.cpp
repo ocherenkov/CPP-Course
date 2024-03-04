@@ -1,7 +1,9 @@
 #include <iostream>
-#include <thread>
-#include <vector>
 #include <iomanip>
+#include <vector>
+#include <thread>
+#include <algorithm>
+#include <iterator>
 
 std::vector<int> generateRandomVector(int size) {
     std::vector<int> vec(size);
@@ -12,24 +14,28 @@ std::vector<int> generateRandomVector(int size) {
 }
 
 void parallelQuickSort(std::vector<int>& vec, int numThreads) {
-    if (numThreads == 1) {
+    size_t size = vec.size();
+
+    if (numThreads <= 1) {
         std::sort(vec.begin(), vec.end());
         return;
     }
 
-    std::vector<int> left(vec.begin(), vec.begin() + vec.size() / 2);
-    std::vector<int> right(vec.begin() + vec.size() / 2, vec.end());
+    std::vector<std::thread> threads(numThreads - 1);
+    auto partition_start = vec.begin();
 
-    int numThreadsLeft = numThreads / 2;
-    int numThreadsRight = numThreads - numThreadsLeft;
+    size_t chunk_size = size / numThreads;
+    for (size_t i = 0; i < numThreads - 1; ++i) {
+        auto partition_end = partition_start + chunk_size;
+        threads[i] = std::thread(std::sort<decltype(partition_start)>, partition_start, partition_end);
+        partition_start = partition_end;
+    }
+    std::sort(partition_start, vec.end());
 
-    std::thread t1([&left, numThreadsLeft] { parallelQuickSort(left, numThreadsLeft); });
-    std::thread t2([&right, numThreadsRight] { parallelQuickSort(right, numThreadsRight); });
+    for (std::thread& t : threads)
+        t.join();
 
-    t1.join();
-    t2.join();
-
-    std::merge(left.begin(), left.end(), right.begin(), right.end(), vec.begin());
+    std::inplace_merge(vec.begin(), partition_start, vec.end());
 }
 
 int main() {
