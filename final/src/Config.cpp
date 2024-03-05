@@ -1,35 +1,32 @@
 #include "Config.h"
 
-Config Config::instance;
-
 Config& Config::getInstance() {
+    static Config instance;
     return instance;
 }
 
-Config::Config() {}
-
 std::string Config::getGameName() const {
-    return gameName;
+    return m_gameName;
 }
 
 float Config::getWindowWidth() const {
-    return windowWidth;
+    return m_windowWidth;
 };
 
 float Config::getWindowHeight() const {
-    return windowHeight;
+    return m_windowHeight;
 };
 
 Highscore Config::getHighScore() {
-    std::ifstream file(scoreFile);
+    std::ifstream file(m_scoreFile);
     std::string info;
     std::getline(file, info, ',');
-    highScore.playerLevel = std::stoi(info);
+    m_highScore.playerLevel = std::stoi(info);
     std::getline(file, info, ',');
-    highScore.score = std::stoi(info);
+    m_highScore.score = std::stoi(info);
     std::getline(file, info);
-    highScore.time = std::stoi(info);
-    return highScore;
+    m_highScore.time = std::stoi(info);
+    return m_highScore;
 }
 
 void Config::setHighScore(Highscore highscore, int playerLevel, int score, int time) {
@@ -37,7 +34,7 @@ void Config::setHighScore(Highscore highscore, int playerLevel, int score, int t
         std::ostringstream strData;
         strData << playerLevel << "," << score << "," << time;
         std::string highscoreString = strData.str();
-        std::ofstream file(scoreFile);
+        std::ofstream file(m_scoreFile);
         if (!file.is_open()) {
             throw std::runtime_error("Error: Could not open highscore.ini");
         }
@@ -46,7 +43,7 @@ void Config::setHighScore(Highscore highscore, int playerLevel, int score, int t
 }
 
 void Config::loadFromFile() {
-    std::ifstream file(configFile);
+    std::ifstream file(m_configFile);
     if (!file.is_open()) {
         throw std::runtime_error("Error: Could not open config.ini");
     }
@@ -65,12 +62,12 @@ void Config::loadFromFile() {
     file.close();
 
     if (configValues.find("gameName") != configValues.end()) {
-        gameName = configValues["gameName"];
+        m_gameName = configValues["gameName"];
     }
     if (configValues.find("windowWidth") != configValues.end()) {
-        windowWidth = std::atof(configValues["windowWidth"].c_str());
+        m_windowWidth = std::atof(configValues["windowWidth"].c_str());
     }
     if (configValues.find("windowHeight") != configValues.end()) {
-        windowHeight = std::atof(configValues["windowHeight"].c_str());
+        m_windowHeight = std::atof(configValues["windowHeight"].c_str());
     }
 }

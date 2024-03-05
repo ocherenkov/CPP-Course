@@ -25,14 +25,10 @@ public:
     void loadFromFile();
 
 private:
-    Config();
-
-    std::string configFile = "./resources/config.ini";
-    std::string scoreFile = "./resources/highscore.ini";
-    std::string gameName;
-    float windowWidth;
-    float windowHeight;
-    Highscore highScore;
-
-    static Config instance;
+    std::string m_configFile = "./resources/config.ini";
+    std::string m_scoreFile = "./resources/highscore.ini";
+    std::string m_gameName;
+    float m_windowWidth;
+    float m_windowHeight;
+    Highscore m_highScore;
 };

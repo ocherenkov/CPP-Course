@@ -15,7 +15,6 @@ public:
     int getPoints() const;
     Item* getDropItem() const;
     bool isDestroyed() const;
-    void attack();
     void takeDamage(int damage);
     void update(float deltaTime);
     void draw(sf::RenderWindow& window);
