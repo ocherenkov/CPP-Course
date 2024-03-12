@@ -30,18 +30,18 @@ Left-click on the buttons
 <details>
 <summary>Main window</summary>
 
-![Screenshot 2024-03-04 at 22.17.32.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202024-03-04%20at%2022.17.32.png)
+![GitHub Image](main_window.png)
 </details>
 <details>
 <summary>Game process</summary>
 
-![Screenshot 2024-03-04 at 22.17.55.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202024-03-04%20at%2022.17.55.png)
-![Screenshot 2024-03-04 at 22.19.40.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202024-03-04%20at%2022.19.40.png)
+![GitHub Image](gameplay_1.png)
+![GitHub Image](gameplay_2.png)
 </details>
 <details>
 <summary>Highscore window</summary>
 
-![Screenshot 2024-03-04 at 22.18.12.png](..%2F..%2F..%2F..%2F..%2F..%2FDesktop%2FScreenshot%202024-03-04%20at%2022.18.12.png)
+![GitHub Image](highscore_window.png)
 </details>
 
 -----
